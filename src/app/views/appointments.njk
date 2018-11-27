@@ -1,0 +1,20 @@
+{% extends '_layouts/default.njk' %}
+
+{% block body %}
+  <div class="content">
+    <p>Seus Agendamentos</p>
+
+    <ul class="providers">
+      {% for client in clients %}
+        <li class="provider">
+          <div>
+            <img src="/file/{{ client.user.avatar }}" alt="Avatar">
+            <strong>{{ client.user.name }}</strong>
+            <strong>{{ client.date | date("HH:mm") }}</strong>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="/app/dashboard">Voltar</a>
+  </div>
+{% endblock %}
